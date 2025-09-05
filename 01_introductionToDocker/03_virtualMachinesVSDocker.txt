@@ -1,0 +1,32 @@
+Virtual Machines VS Docker platform
+
+	Virtual machine
+		This is an abstract way to have resources for a not real computer inside a real one.
+
+		For example we could have a physical "Mac" computer and have running 2 virtual machines one with Microsoft and the other one with Linux version.
+
+		How its possible to do that?
+		well, to be able to run virtual machines on a physical computer its necessary to use an "Hypervisor" software, this could be "VMware", "Virtual box" or Hyper-V (only for Windows).
+
+		Advantages
+			- The main advantage for virtual machines is the isolation of each virtual machine, we can isolate applications on each virtual machines.
+			- We can delete the virtual machine once we don't need it any more.
+			- Move the virtual machines to another physical computer.		
+
+		Disadvantages
+			- Virtual machines use a real copy of the operative system (Windows, Mac, Linux)
+			- Takes resources from the physical machine (CPU, RAM memory, disk, etc, a lot of resources and intensive).
+			- Slow to start
+
+	Docker container
+
+		Similar to virtual machines about the isolation of applications but even better, let check all the advantages.
+
+		Advantages
+			- Allow to run multiple applications in isolation
+			- Docker containers are lightweight
+			- Use Operative system of the host
+			- Start quickly
+			- Need less hardware resources
+			- We dont need to specify the number of cpu cores, memory or space.
+

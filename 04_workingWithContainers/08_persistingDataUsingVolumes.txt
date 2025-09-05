@@ -1,0 +1,115 @@
+Persisting data using volumes
+
+On this lesson we are going to learn to create a volume for our container.
+
+What is a volume?
+
+	A volume is a storage outside the container, it could be on the host or maybe storage in the cloud.
+
+Advantage of a volume
+
+	We can persist data into a container with a volume even if we remove/delete the container, this is possible due to we create the volume in the host or cloud storage, not directly on the container.
+
+
+
+You can see the documentation with the next command 
+
+	docker volume --help
+
+
+We can create a volume with next command:
+
+	docker volume create <nameOfVolume>
+
+	Example:
+	
+	docker volume create app-data
+
+
+Once we have created our "app-data" volume we are going to inspect it with next command:
+
+	docker volume inspect app-data
+
+We will get something like next:
+
+  [
+    {
+      "CreatedAt": "2025-09-03T20:28:11Z",
+      "Driver": "local",
+      "Labels": null,
+      "Mountpoint": "/var/lib/docker/volumes/app-data/_data",
+      "Name": "app-data",
+      "Options": null,
+      "Scope": "local"
+    }
+  ]
+
+As you can see the have some properties on the json object returned by docker and we will describe some of them:
+
+CreatedAt --> Date and time volume have been created
+Driver    --> By default is "local" which means local host
+MountPoint--> the path where the volume was created and storaged
+Name      --> Name we give the volume
+
+Add the next command to "Dockerfile" just below WORKDIR command:
+
+	RUN mkdir data
+
+Build again the image:
+
+	docker build -t react-app .
+
+Now, to add a volume to our container we can apply the next command:
+
+	docker run -d -p 4000:3000 -v app-data:/app/data react-app
+
+	-v                   -->  option to enable the volume
+	app-data:/app/data   -->  volumeName:volumePath in the container
+	react-app            -->  image used for running container
+
+
+we are going to start terminal shell interactive mode of our container
+	
+	docker exec <containerName or containerID> -it sh
+
+Please go to "/app/data" directory and check if exists:
+
+	cd /app/data
+
+if was created properly please type next command to add a new file into that directory:
+
+	echo data > data.txt
+
+Now, exit from terminal shell
+	
+	exit
+
+And remove the container
+	
+	docker container rm <containerName or containerID>
+
+
+Create a new container with the same volume name:
+
+	docker run -d -p 4000:3000 -v app-data:/app/data react-app
+
+Go to interactive mode with shell and check we have the directory and the file previously added into the removed container, well this is because we use the same volume name and we are using that one to persist the previous created data.
+
+	docker exec <containerName or containerID> -it sh
+
+	Go the "/app/data" directory and list the files:
+
+		cd /app/data
+		
+		ls
+
+	You will see the document created into removed container, but, persist now due to our created volume.
+
+
+We can share a volume with different containers, but we will see it in another lesson.
+
+
+Well done, we have learned how to persist data into docker containers!!!
+
+
+	 

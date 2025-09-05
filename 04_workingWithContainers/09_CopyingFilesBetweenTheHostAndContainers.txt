@@ -1,0 +1,85 @@
+Copying files between the hots and the containers
+
+
+Sometimes you could need to pass/copy information from the container to localhost and viceversa, well, in docker we have a command to copy the information.
+
+	long way : docker container cp <source> <target>
+	short way: docker cp <source> <target>
+
+
+	As we have seen on previous lessons, you can check the documentation of the command with --help
+	
+	docker cp --help
+
+
+We are going to create a file into the container and copy the host:
+
+	docker cp <containerID or containerName>:<full path of resource to copy> <target path>
+
+
+	Example:
+
+	1. Go interactive mode of your container
+
+		docker exec -it 8d6 sh
+		
+	2. Create a new log.txt file
+		
+		echo "this is a log" > log.txt
+
+	3. Exit from container  	
+		
+		exit
+
+	4. Copy the file from container to actual path
+
+		docker cp 8d6:/app/log.txt .
+
+		8d6          ---> 8d6 is the container ID
+		:            ---> semicolon to divide the container and path
+		/app/log.txt ---> path of the source to copy
+		.            ---> current path in host
+
+
+	5. Check this "log.txt" was copied the current path in the host
+
+
+
+Now, We are going to create a file into the host and copy the container:
+
+	docker cp <source path> <containerID or containerName>:<full path of target to copy>
+
+
+	Example:
+
+	1. Create a file into current path on host (this command could only work on Linux, please check)
+
+		echo "this is a secret string" > secret.txt
+		
+	2. Copy the file from host to container path
+		
+		docker cp secret.txt  8d6:/app
+
+		secret.txt   ---> source to copy
+		8d6          ---> 8d6 is the container ID
+		:            ---> semicolon to divide the container and path
+		/app/log.txt ---> path of the target path
+
+	3. Go interactive mode of your container  	
+		
+		docker exec -it 8d6 sh
+
+	4. Check this "secret.txt" was copied the container
+
+		cd /app
+
+		ls | grep secret
+
+	5. Exit from container
+
+		exit
+
+
+Great, you have learned how to copy files from host to container and container from host, well done!!!
+
+

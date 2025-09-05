@@ -1,0 +1,22 @@
+Manipulating files and directories on Linux
+
+	To create directories (folders) and Files on Linux we can use next commands:
+
+	- mkdir <name>                     --> creates a folder/directory with specified name
+	- mv <name> <new name/new path>    --> rename or move files and folders
+	- touch <name1> <name2> <name3> ... --> creates file(s) with specified name
+	- rm <name1> <name2> <name3> ...   --> removes file(s) with specified name
+
+
+	As an exercise please do the next:
+	
+	1. go home path
+	2. create a folder
+	3. go inside that new folder
+	4. create a lot of files
+	5. remove some of them files
+	6. go back the folder
+	7. remove the folder
+
+
+	Well done!!! You have used a lot of commands from Linux operating system!!! 

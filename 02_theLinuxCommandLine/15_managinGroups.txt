@@ -1,0 +1,67 @@
+Managing Groups
+
+Just like user we have similar commands for groups, but What is a group?
+
+A group on Linux is a set of users with same permissions, we can define all permissions we consider necessary into a group and assign users to that group. This will make that the user will have specified permissions previously added to the group. 
+
+
+Create a new group
+
+	groupadd <nameOfGroup>
+
+Modify a group 
+	
+	groupmode <nameOfGroup>
+
+Remove a group
+	
+	groupdel <nameOfGroup>
+
+
+We re going to create a group called "developers" and assign the user "dany" to this new goup:
+
+	1. groupadd developers
+	2. usermod -G developers dany
+		
+		-G ---> this means assign this user to a supplementary group
+
+	3. to check if was already created we can execute the next command:
+		
+		cat /etc/group | grep dany
+
+		we will see something similar to next line:
+
+			dany:x:1001:
+			developers:x:1002:dany
+
+		Or we can check with next way too:
+
+			grep dany /etc/passwd
+
+		We will get something similar to next:
+	
+			dany:x:1001:1001::/home/dany:/bin/sh
+
+
+Exercise:
+	
+	please create a new group called "artists" and assign the user "dany" to this new created group.
+
+
+Solution:
+	1. groupadd artists
+	2. usermod -G developers,artists dany
+	3. check if is already created and assigned: cat /etc/group | grep dany
+		
+		You will see something similar to next:
+
+		dany:x:1001:
+		developers:x:1002:dany
+		artists:x:1003:dany
+
+
+Well done now!!! you can manage groups on Linux, this is a basic way but we will fine with this for now, Congratulations!!!
+
+
+
+

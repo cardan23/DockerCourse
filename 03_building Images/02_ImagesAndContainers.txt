@@ -1,0 +1,48 @@
+Images and Containers
+
+
+Images
+
+An Image contains all what an application needs to work, just like:
+
+	- A cut-down Operating system
+	- Third party libraries
+	- Application files
+	- Environment variables
+	- Configuration files
+	- etc
+
+	This is a set of thigs that makes an application can work with all dependencies and software needed.
+
+Container
+
+	A container is like a virtual machine, designed to allocate an application in a isolated way, the container have next things:
+	
+	- Provides an isolated environmnent
+	- Can be stopped and restared
+	- Is just a process
+	- Is like an instance of the image.
+
+
+We can have several containers (processes, instances) of the same image running and will be isolated and not necessary connected between.
+
+To demonstrate please download the "Ubuntu" image and create 2 containers to notice, both are independent:
+
+1. open a terminal window
+2. docker run ubuntu
+3. docker build -t ubuntu
+4. docker run ubuntu
+5. go to home, "cd ~"
+6. create a file, touch myfile.txt
+
+7. open another terminal window
+8. docker run ubuntu
+9. go to home, "cd ~"
+10. Try to see all files and you will notice not exist any "myfile.txt" file. This means containers are isolated.
+
+
+
+
+Now you can understand both concepts, well done!!!
+
+

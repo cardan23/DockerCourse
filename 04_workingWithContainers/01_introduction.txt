@@ -1,0 +1,14 @@
+Working with containers
+
+Welcome this new modure, we are going to work with containers and we will see next topics:
+
+	- Starting and stopping containers
+	- Publishing ports
+	- Viewing logs
+	- executing commands in containers
+	- removing containers
+	- persisting data using volumes
+	- sharing source code
+
+
+Let's get stared

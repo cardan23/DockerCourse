@@ -1,0 +1,36 @@
+Removing Images
+
+
+On this lesson we are going to see how to remove images and containers. We already know docker containers are lightweight but this process can free some space from our disk.
+
+
+1. With any of this two command we can see a list of all images on the host. We could se some images without a name and this indicates are dangling images.
+
+docker image ls 
+docker images
+
+
+2. With this command we can remove all the dandling images, docker will ask for a confirmation before apply the command.
+
+docker image prune
+
+
+3. With this command we can one or more images separated by space.
+
+docker image rm <dockerImageID> <anotherDockerImageID>
+
+
+4. With this command we can remove all the dandling docker containers, docker will ask for a confirmation before apply the command.
+
+docker container prune
+
+5. With this command we can one or more containers separated by space.
+
+docker container rm <dockerContainerID> <anotherDockerContainerID>
+
+
+
+Great, now you know how to remove images and containers and free space on the host, well done!!!
+
+
+

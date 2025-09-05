@@ -1,0 +1,50 @@
+Installing Docker
+
+	You can go to this page from this link:
+		Docker download page: https://www.docker.com/get-started/
+
+	1. Go to google and search for "docker"
+	2. Go to "get started" section
+	3. Check the system requirements for docker on your computer and verify if your computer accomplish those for correct behavior.
+	4. Click on "Get Docker"
+	5. Select your operating system
+	6. Download docker for your Operating system
+	7. Execute the installer
+	8. Once the installer ends, open CMD or terminal window and type the next command:
+
+		docker --version
+
+	You should see something like this:
+
+	Client:
+ Version:           28.2.2
+ API version:       1.50
+ Go version:        go1.24.3
+ Git commit:        e6534b4
+ Built:             Fri May 30 12:07:16 2025
+ OS/Arch:           windows/amd64
+ Context:           desktop-linux
+
+Server: Docker Desktop 4.42.1 (196648)
+ Engine:
+  Version:          28.2.2
+  API version:      1.50 (minimum version 1.24)
+  Go version:       go1.24.3
+  Git commit:       45873be
+  Built:            Fri May 30 12:07:26 2025
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          1.7.27
+  GitCommit:        05044ec0a9a75232cad458027ca83437aae3f4da
+ runc:
+  Version:          1.2.5
+  GitCommit:        v1.2.5-0-g59923ef
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+		
+
+
+
+Well done!!! you have installed Docker on your machine!!!

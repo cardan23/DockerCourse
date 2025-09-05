@@ -1,0 +1,47 @@
+Navigating Linux file system
+	
+	We will walk on the Linux file system now.
+
+	A common command to use on Linux is:
+	
+		-- pwd (print working directory) which will show the current path where we are, very very useful, please remember it.
+
+		-- ls (list) will show the list of files and directories on the path we are.
+
+		-- ls -l (list long view) we can see size of elements, permissions, created date, etc.
+
+		-- cd (current directory) this command is useful to change or move into directories on Linux.
+
+
+		Relative path
+			begins from the path we are into the moment, if we are on root path we only type 
+			
+			cd boot
+			
+			To go into boot path (notice we are not including "/" path)
+
+		Absolute path
+			always begins from root path, example:
+			
+			/boot
+
+		Go one level up on path
+			cd ..
+
+		Go two level up on path
+			cd ../..
+
+		Go to root path
+			cd /
+
+		Go to home directory (works for any user)
+			cd ~
+
+	Now is your turn, play and explore with these commands.
+
+
+
+Well done!! You now know some useful commands on Linux!!!
+
+
+	

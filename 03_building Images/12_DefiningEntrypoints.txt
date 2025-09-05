@@ -1,0 +1,105 @@
+Defining Entrypoints
+
+We have almost all done with docker configuration for our application, we are going to define the entrypoints to start it:
+
+Lets do next change to "dockerfile"
+
+Please up the "USER" commands to up, just bellow the "FROM" command, like this:
+
+FROM node:alpine3.22
+
+RUN addgroup app && adduser -S -G app app
+USER app
+
+WORKDIR /app
+COPY . .
+RUN npm install
+ENV API_URL=http://api.myapi.com/
+EXPOSE 3000
+
+
+with this change we are using the "app" user to apply commands and not "root" anymore by security.
+
+After save this change, please add the next command at the end of the "dockerfile":
+
+CMD npm start
+
+CMD ---> this command executes a command on the container.
+
+
+So what is the difference between RUN and CMD command?
+
+	RUN command is executed on the build creation of the image and CMD is executed on the run-time execution on the container.
+
+
+We have two different ways to use "CMD" command, we are going to see bellow:
+
+	1. CMD npm start         ---> Shell form, bin/sh on Linux and cmd on windows
+	2. CMD ["npm", "start"]  ---> Exec form
+
+
+	The difference is the next one:
+
+	1. If we use the first way, docker will run the command into a separated shell window.
+	2. If we use the second way, docker will not run another shell window and will be faster and cleaner to stop and start a new container.
+	   
+	This second option is the recommended, so please always use it.
+
+
+Now we will modify our "dockerfile" and we will have something like this:
+
+
+FROM node:alpine3.22
+RUN addgroup app && adduser -S -G app app
+USER app
+WORKDIR /app
+COPY . .
+RUN npm install
+ENV API_URL=http://api.myapi.com/
+EXPOSE 3000
+CMD ["npm", "start"]
+
+
+
+We have another command pretty similar to "CMD" command which is "ENTRYPOINT":
+
+Just like "CMD" we have two ways to use "ENTRYPOINT"
+
+	ENTRYPOINT npm start        ---> Shell form
+	ENTRYPOINT ["npm", "start"] ---> Execute form
+	
+	Same case as CMD command, its recommended to use the Execute form.
+
+
+But... wait, what is the difference between CMD and ENTRYPOINT command?
+
+	Well, let me explain something here:
+
+	When we run our container in a interactive mode and open the shell, we are doing this:
+
+		docker run -it reac-app sh
+
+	The last option of the command is "sh" which is telling to docker... "open the shell window once it runs".
+
+	This last option is overriding our entrypoint command, many people use this and apply their own entrypoint at the end.
+
+
+	With "CMD" entrypoint command we can override it just like that:
+
+		docker run -it reac-app sh
+
+	With "ENTRYPOINT" command we should add the option --entrypoint to override it, just like that:
+
+		docker run -it reac-app --entrypoint sh
+
+
+	This is one of those things that apply the same behavior but many people have different preferences, on this lessons we are going to use the CMD command.
+
+
+Well done, you have added your entrypoint into your dockerfile, congratulations!!!
+
+
+
+
+	
+

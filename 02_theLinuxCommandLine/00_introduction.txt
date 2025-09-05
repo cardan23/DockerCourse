@@ -1,0 +1,7 @@
+Introduction
+
+	Linux is like English into these days, so for that reason Docker is based on Linux commands.
+
+	The architecture of docker is based on Linux architecture too, so for this reason we will learn some linux commands on this section.
+
+	Lets go!!!

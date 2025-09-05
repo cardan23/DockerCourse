@@ -1,0 +1,46 @@
+Starting containers
+
+As we create on previous module the image to be able to run our docker container, we will use the next command about  "react-app" image:
+
+	docker run <nameOfImage>
+
+	docker run react-app
+
+
+This previous way will run docker container but we cannot use the terminal window to add or type more commands if we need.
+For that reason we have an option "-d" (detached) which used to run our docker container in background task and be able to use the terminal window for more commands, please check next example:
+
+
+	docker run -d <nameOfImage>
+
+	docker run -d react-app
+
+
+Now list your docker containers on the terminal like this:
+
+
+	docker ps
+
+
+As you can see docker assign a random name to our container for us, but if we want to add a specific name we should use the "--name" option and add the name we want.
+
+
+	docker run -d --name <nameOfContainer> <nameOfImage>
+
+	docker run -d --name blue-sky react-app
+
+
+After this process check if your container is running in background with next command:
+
+	docker ps
+
+
+
+
+Well done, you have run a container in a background mode, congrats!!!
+
+
+
+
+
+

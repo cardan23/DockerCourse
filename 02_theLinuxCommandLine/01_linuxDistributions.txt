@@ -1,0 +1,35 @@
+Linux distributions
+
+	As you maybe already know "Linux" is an open source operative system and there are a lot of different versions or variants of Linux, we call to these variants of Linux as "distributions".
+
+	Some Linux distributions:
+	
+	- Ubuntu
+	- Fedora
+	- Debian
+	- Alpine
+	- CentOS
+	
+	For our next practices we will use the Ubuntu distribution, if you want to use another distribution is totally fine.
+
+
+	Now you already know what is a Linux distribution, well done!!!
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

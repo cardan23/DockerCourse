@@ -1,0 +1,27 @@
+Docker workflow
+
+	The process for "Dockerize" an application with any platform or any language programming is the next one:
+
+	1. Add a docker file to the application.
+
+		This is a plain text file with instructions that docker uses to package the application into an image.
+		The image contains everything necessary for running our application.
+
+		For example this image could include:
+			1. A cut-down Operative System
+			2. A runtime environment (eg. Node, Python, .Net, etc)
+			3. Application files
+			4. Third-party libraries
+			5. Environment variables
+
+	2. Once we have the image, we tell docker to use that image into a docker container. 
+	   Instead of running the application directly into our computer or environment we run it into a docker container,
+ 	   with this the application is isolated and dependencies or requirements cannot affect other applications.
+
+
+
+	With this process we can have our application into a package and replicate into different environments running docker.
+	We pass the image to QA/Prod server and docker container into this environment will run it.
+
+
+	Well done!!! You can understand now the docker workflow!!!

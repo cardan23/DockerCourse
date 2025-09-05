@@ -1,0 +1,42 @@
+Sharing Images on docker hub
+
+To share an Image on docker hub we will do next steps:
+
+
+1. Create an account on https://hub.docker.com/
+2. Go to Repositories and click on "Create a repository"
+3. Add a name (mandatory) and description (optional) and click on "create repository"
+
+	In my case I used: carlosavilc/react-app
+
+4. Back on terminal, create a build image:
+
+	docker image build -t react-app:2 .
+
+5. Add a tag to your image with your user name, something like this:
+
+	docker image tag react-app:2 carlosavilc/react-app:2
+
+6. Login docker
+	
+	docker login
+
+7. Enter user and password
+8. Push your image to docker hub
+
+	docker push carlosavilc/react-app:2
+
+9. Check on "https://hub.docker.com" if was already shared
+10. create a new build image with new tag
+
+	docker image build -t react-app:3 .
+
+11. Check on "https://hub.docker.com" if was already shared too.
+
+
+Please check the "16_ShareImages" directory and you will see the images about this result. 
+
+
+
+You have shared your image on docker hub, well done!!!
+

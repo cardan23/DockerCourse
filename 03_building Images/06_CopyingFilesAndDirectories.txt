@@ -1,0 +1,36 @@
+Copying files and directories
+
+
+We are going to add some commands to docker file to copy files and directories from our app to our docker container.
+
+FROM node:alpine3.22
+
+WORKDIR /app 
+COPY . .
+
+
+
+WORKDIR  ---> will create the directory if not exist and will go to that path
+COPY . . ---> On this command we are telling docker... "copy all files on the application to the current path (which is /app)"
+
+ADD ---> add command have the same usage of copy command with some differences:
+	1. It can to decompress a compressed file inside docker 
+
+		Example: ADD myZipFile.zip /app/myDecompressedFile
+
+	2. Add a file from a url to our container
+
+		Example: ADD http://.../file.json /downloaded/file.json
+
+
+Now you can build again your image and run it into interactive mode to check if files and directories were copied
+
+1. docker build -t react-app .
+2. docker run -it react-app sh 
+3. Apply "ls" command on "/app" path and check if all application files are there (everything should be there fine).
+
+
+
+On the next lesson we will learn to exclude some files and directories, Well done!!!
+
+

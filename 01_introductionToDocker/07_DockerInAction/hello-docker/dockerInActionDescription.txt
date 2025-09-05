@@ -1,0 +1,57 @@
+FROM node:alpine ----> "node:alpine" its an lightweight image on docker repository with node js integrated (link node image: https://hub.docker.com/_/node)
+
+COPY . /app ----> it means copy all files into /app folder
+
+WORDIR /app ----> go to /app directory/folder
+
+CMD node app.js ---> run node "app.js" file
+
+
+After having this file we will build the docker package.
+
+	1. Open a terminal window, go to the path where we have the docker file into the application and type the next command:
+		
+		docker build -t hello-docker .
+
+	2. After apply this command, to check if our image has been created we can type the next command on terminal window
+		
+		docker image ls 
+
+	   This will give the list of all images created with docker, we will see something like next:
+
+		REPOSITORY       TAG       IMAGE ID       CREATED         SIZE
+		hello-docker     latest    b64e27bd405c   2 minutes ago   153MB
+
+	Now we have our image created with docker we can move it to docker hub repository and use it into another computer
+	Let's do the next exercise.
+
+
+	1. open docker.com
+	2. Create an account and login into it
+	3. Go to repositories
+	4. Create a repository
+	5. Add a repository name and short description
+	6. Click on create
+	7. Go to labs.play-with-docker.com
+	8. create an account an log in into it
+	9. Start button
+	10. Click on "Add new instance"
+		we are creating a new virtual machine for free. This virtual machine only has Linux and docker installed
+
+	11. Type "docker version" on this new virtual machine to check the docker version installed
+	12. Then type "docker pull <nameOfDockerImage>" in my case is... carlosavilc/hello-docker
+		
+		This command will download the docker image previously created on docker hub repository
+
+	13. run the next command "docker image ls"
+		This command will show the all the list images
+	14. run the next command
+		docker run <nameOfDockerImage>
+		
+		In my case is... docker run carlosavilc/hello-docker
+
+	15. This will run our application into our new docker container.
+
+
+
+

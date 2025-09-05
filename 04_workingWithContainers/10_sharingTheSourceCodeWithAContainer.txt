@@ -1,0 +1,66 @@
+Sharing the source code with a container
+
+We are going to make an exercise, on the web browser please go the next address
+	
+	localhost:4000
+
+This will open our react-app running, if is not running please check if your container is running with:
+
+	docker ps
+
+If your container is not running please run it with next command:
+
+	docker run -d -p 4000:3000 -v app-data:/app/data react-app
+
+Now, we have our container running.
+
+
+Please follow the next steps:
+
+	1. Go "public" directory of our application and modify the "<title>React App</title>" to next:
+
+		<title>Dockerized React App</title>
+
+	2. Refresh the page and check if the title of the page was modified.
+	
+Correct, was not modified, this is because we are not sharing the source code with container and any change we make on source code will not be reflected on the published application.
+
+On Production Environment we need to follow the next steps:
+
+	1. build an image
+	2. run our container
+
+
+For development environment we CANNOT build an image with every change we make and running the container, this process is slow and hard to do, for this reason we are going to share the source code with our container:
+
+	Please apply next command to share source code with our container:
+
+		docker run -d -p 5000:3000 -v $(pwd):/app react-app
+
+		-v        ---> adding a volume
+		$(pwd)    ---> will add our current path, source path for volume (source code path)
+		/app      ---> target path for volume
+		react-app ---> name of our docker image
+
+
+	IMPORTANT: In my case $(pwd) doesn't work, so I added the complete full path of source code and worked fine, for example: change $(pwd) -->  C:\Desktop\Course\react-app
+
+
+Now, please follow the next steps:
+
+	1. Go "public" directory of our application and modify the "<title>React App</title>" to next:
+
+		<title>Dockerized React App is working</title>
+
+	2. Refresh the page and check if the title of the page was modified.
+	3. Correct, was modified!!
+
+
+In docker we called to this process a "hot reloading".
+
+With this way to run our docker container we don't need to build the image and running the container with every single change.
+
+
+
+Well done, you already know how to share the source code with the container.
+

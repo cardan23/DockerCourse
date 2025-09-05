@@ -1,0 +1,24 @@
+Executing commands in running containers
+
+
+We already saw how to run our container and execute some commands at the beginning of the run, but now if we want to execute some commands into a running container we can do it with next command:
+
+	docker exec <containerID or containerName> <AnyComandHere>
+
+	docker exec blue-sky ls
+
+You will see the list of files and directories into our application, this is due to the working directory defined on our "dockerfile" was "/app" directory.
+
+
+We can execute any command we want, another example is the next one:
+
+	 docker exec -it blue-sky sh
+
+That previous command open the terminal of the container wit interactive mode, you can exit from it using the "exit" command.
+
+
+
+Well done, you have executed a command into a running container
+
+
+

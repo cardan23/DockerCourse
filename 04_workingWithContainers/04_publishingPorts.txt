@@ -1,0 +1,27 @@
+Publishing ports
+
+
+As we mentioned on the previous module we are going to see how to publish/bind ports between the container and the host.
+
+
+We can publish the port at the same time to run our container like this:
+
+
+	docker run -d -p <host port>:<container port> --name <containerName> <imageName>
+
+
+	Example:
+	
+	docker run -d -p 2000:3000 --name blue-sky react-app
+
+
+Now with this command please list all the running containers and you will notice something like next:
+
+CONTAINER ID   IMAGE       COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+8ec75e44c525   react-app   "docker-entrypoint.s…"   4 seconds ago    Up 2 seconds    0.0.0.0:2000->3000/tcp, [::]:2000->3000/tcp   blue-sky
+
+
+As you can see on the PORTS column we can see the mapping between the host and the container. Now you can go to the explorer and go the site localhost:2000 to see if our application is running.
+
+
+You have mapped the port on your container, well done!!!

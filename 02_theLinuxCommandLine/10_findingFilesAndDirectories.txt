@@ -1,0 +1,39 @@
+Finding files and directories
+
+We can search and find files and directories on Linux with some commands and make our work easier like below:
+
+the "find" command can help us with the task to find files and directories.
+
+	
+	for example next command:
+
+	find /etc --> will show all the files and directories stating from /etc
+
+
+filtering the result
+
+	find -type d ---> find only directories "d" into current path
+
+	find -type f ---> find only files "f" into current path
+
+	find -type f -name "f*" ---> find all files with name starting with "f"
+
+	find -type f -iname "f*" ---> find all files with name starting with "f" (-i, means case insensitive)
+
+
+Exercise:
+
+	Find all python files and write the result into a files called "pythonFiles.txt"
+
+
+Solution
+
+	find / -type f -name "*.py" > ~/pythonFiles.txt
+
+	/      --> starting from root path 
+	"*.py" --> python extension file
+	>      --> redirection operator, in this case will redirect to a file
+	~      --> home path
+
+
+	

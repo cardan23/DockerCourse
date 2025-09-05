@@ -1,0 +1,36 @@
+Setting Environment variables
+
+Sometimes we need on our applications to set some environment variables, like API URLs. In this lesson we ae going to learn how to do that with commands in docker container.
+
+
+open the "dockerfile" on the application in visual code and type the next command at the end of the file:
+
+ENV API_URL=http://api.myapi.com/
+
+
+ENV --> this command will let us create environment variables on our docker container
+
+
+Open a terminal, go the app path and build your image again
+
+	docker image build -t react-app .
+
+Run your container in a interactive way
+		
+	docker run -it react-app sh
+
+Check if the environment variable was created with next Linux commands learned into the previous module.
+	
+	We can check with some ways:
+
+	1. printenv API_URL
+	2. printenv
+	3. echo $API_URL
+
+
+You should see the value of the environment variable created.
+
+
+You have created an environment variable in docker container, Well done!!
+
+

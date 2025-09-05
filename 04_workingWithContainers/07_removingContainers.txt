@@ -1,0 +1,26 @@
+Removing containers
+
+
+We can remove containers like next ways:
+
+	
+	1. docker container rm <containerId or containerName>
+
+	2. docker rm  <containerId or containerName>
+
+
+These previous commands works the same way, the first one is the large way and the second one the short way.
+
+
+To force to remove a container, we can do it with the "-f" option:
+
+	docker rm  -f blue-sky
+
+
+Now to clean docker and remove all the stopped containers, we can use the "prune" command:
+
+	docker prune
+
+
+
+Great, you already know how to remove a container!!!

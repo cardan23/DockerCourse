@@ -1,0 +1,4 @@
+
+This is the command to init the docker package
+
+	docker-compose up

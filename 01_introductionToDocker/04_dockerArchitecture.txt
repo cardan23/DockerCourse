@@ -1,0 +1,19 @@
+
+Docker Architecture
+	
+
+	Docker architecture works just like Client -> Server application, Docker uses a client and stablish communication through an API to connect with Docker Engine (Server).
+	
+	Every operative system has a kernel which is the main engine for the operative system. Every kernel of every operative system, manage all the calls, just like an API, docker uses this API to run all necessary for containers. All containers are like process for the operative system.
+
+	For Linux operative systems we can only run "Linux containers", for Windows we can run both "Windows and Linux containers". For MACOS we should run a Virtual machine for Linux to be able to run "Linux docker containers" on it.
+
+	We can run docker packages on the operative system as we show below:
+
+	Windows
+		windows
+		Linux (we can run Linux docker package on windows due to windows brings support to Linux since windows 10 integrated "custom built Linux kernel")
+	Linux
+		Linux
+	Mac
+		Mac doesnt support natively docker packages, Mac uses Linux Virtual Machine (Linux VM) to run docker linux containers

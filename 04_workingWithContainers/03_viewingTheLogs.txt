@@ -1,0 +1,41 @@
+Viewing the logs
+
+
+A way to check if our container is having some issues to run or maybe the application is showing some error messages we can check the log of docker with next command:
+
+	docker logs <containerID or containerName>
+
+
+	docker logs blue-sky
+
+
+If you need more options you can type the next command to get help from documentation of docker into the terminal window, you can do this with all commands of docker:
+
+
+	docker logs --help
+
+
+Example:
+
+
+	1. We can get the last 10 lines of the container logs with next command
+
+
+	docker logs -n <containerID or containerName>
+
+	docker logs -n blue-sky
+
+
+	2. We can see follow the output of our container 
+
+	docker logs -f blue-sky
+
+
+	Please check several options and play with them.
+
+
+You have check the docker container logs, well done!!!
+
+
+
+

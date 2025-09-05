@@ -1,0 +1,4 @@
+
+This is the command to remove the docker package and only affect 
+
+	docker-compose down --rmi all

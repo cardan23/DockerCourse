@@ -1,0 +1,27 @@
+What is Docker?
+
+Docker is a platform for building, running and shipping applications. No matter the language nor the framework.
+
+A clear example its when we are building and running our application on local or dev environment, everything
+is working as expected, the issues comes when we pass that application to another environment like QA, UAT, Stage,
+even Production. On those "new" environments for our application the are some missing software, dependencies and versions
+of needed software. There are a lot of reasons our application could fail due to missing dependencies on the environment.
+For that reason Docker creates a package to have same dependencies and versions of software we should use for our app and 
+resolve the issues mentioned before.
+
+For example if we need node 18 version, Mongo 4 version on our application, with docker we can create a package to have
+all these versions on a single package. With this package we can replicate all necessary to any environment.
+
+Another good example is when a new team member joins to our project, instead of passing a lot of time setting up
+all dependencies, libraries or needed software into their local environment, we just pass the docker package to start
+and make easy all this process.
+
+Another advantage using docker is having different applications on the same environment (local, QA, Production, etc.)
+If we need different versions on two applications we can have two packages with necessary software for each one.
+
+As a final example of good use of docker is removing our package for our application once we don't need it anymore,
+letting free space for another application.
+
+All of these are we advantages using docker.
+
+So.... Lets get started!!

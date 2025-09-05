@@ -1,0 +1,27 @@
+Running Commands
+
+Now in this lesson we are going to run the installation of all packages on our application inside our container.
+
+We will run the command "npm install" to get all package dependencies for our application.
+
+
+1. Open the "dockerfile"
+2. At the end of the file type the next command
+
+	RUN npm install
+
+	RUN --> will let us execute some commands into our container
+
+
+3. build your image again
+		
+	docker build -t react-app .
+
+4. Run your container into an interactive way
+
+	docker run -it react-app sh
+
+5. Apply "ls" command on "/app" path to see the node_modules directory created due to our "RUN" command.
+
+
+Now you already know how to run commands into your container, Well done!!!

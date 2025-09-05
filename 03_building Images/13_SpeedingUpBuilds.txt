@@ -1,0 +1,56 @@
+Speeding up our builds
+
+
+As you already notice our images builds are taking to long time to build it, this is because we are running the next command over and over again:
+
+	RUN npm install
+
+In this lesson we are going to see how to speed up and optimizing our build images.
+
+
+Docker works with layers, but how works those layers? Let see a quick example here:
+
+When we build our image, docker goes creating images while commands are coming:
+
+FROM node:alpine3.22 ---> create one layer
+WORKDIR /app         ---> create a second layer
+COPY . .             ---> another layer here
+RUN npm install      ---> one more layer on this and so on...
+
+
+If a layer change at some docker will detect it and will build it again and all following layers, that is the reason is taking too much time on the "RUN npm install" command, docker detects changes into the file system with every "npm install" and creates the layer again and again.
+
+
+To avoid that behavior we need to apply changes into our "dockerfile", the first thing is...
+
+As you already know, "package.json" and "package-lock.json" files are responsible to have the list of all packages needed for our application, well we will copy those files to create a new layer and only execute the "RUN npm install" command if we have changes on the previous layer, if not, docker will take from their cache and not execute the command anymore.
+
+We will change the "dockerfile" to next:
+
+FROM node:alpine3.22
+WORKDIR /app
+
+COPY package*.json . ----> new line to create a new layer and avoid run "npm instal" if not changes in those files.
+
+RUN npm install
+COPY . .
+ENV API_URL=http://api.myapi.com/
+EXPOSE 3000
+RUN addgroup app && adduser -S -G app app
+USER app
+
+
+Now we are going to build our image again and we will see the "RUN npm install" command will be executed for first time
+
+	docker build -t react-app .
+
+On next build we make, "RUN npm install" command will not be executed if we don't have changes on the layer.
+
+	docker build -t react-app .
+
+
+Important Note: We need to be careful and take the best approach on our dockerfile commands and avoid consume extra time and resources. We need to maintain docker clean, fast and light for run.
+
+
+Now you have speed it up the build of your docker image, well done!!!
+

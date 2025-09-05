@@ -1,0 +1,15 @@
+Building Images
+
+The first step of working with Docker is creating images, so in this module we will learn about the next topics:
+
+- Creating docker files
+- Versioning images
+- Sharing images
+- Saving and loading images
+- Reducing the image size
+- Speeding up builds
+
+
+
+
+Let's dive in those topics, you can do it and let's get started!!!

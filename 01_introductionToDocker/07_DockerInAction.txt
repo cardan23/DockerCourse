@@ -1,0 +1,80 @@
+Docker in Action
+
+We will how run the app without Docker first:
+
+1. open a terminal window in your desired folder
+2. Create a folder typing next command:
+
+mkdir hello-docker
+
+3. Go inside this directory
+
+cd hello-docker
+
+4. Open this folder on visual studio code
+5. Create a js file like app.js (This will be our application)
+6. Add a line on "app.js" file like: console.log("Hello Docker!!");
+7. Type on terminal "node app.js" to run the application.
+
+Did you see the complexity of this steps? I will resume on next steps, to see the difference with docker.
+
+Next will see the steps without docker:
+
+1. Start the Operating system
+2. Install node
+3. Copy app files
+4. Run node app.js
+
+
+Now we will see Docker in Action:
+
+1. Open visual studio and open the previous folder "hello-docker"
+2. Create a Docker file "Dockerfile" (not extensions on it)
+3. Write next instructions on this "DockerFile"
+
+
+FROM node:alpine
+COPY . /app
+WORDIR /app
+CMD node app.js
+
+FROM node:alpine --> means the image we are going to use
+COPY . /app --> means copy all files from project and paste it into a new folder called "app"
+WORDIR /app --> moving to new "app" folder
+CMD node app.js --> running application "node app.js"
+
+Now we go th terminal and type next:
+
+1. docker build -t hello-docker .
+
+The previous command means we are packaging our application with docker:
+
+docker build --> means package the application with docker
+-t hello-docker --> adding a tag for our project or application in this case is "hello-docker"
+. --> this is the path where Dockerfile is, in this case the folder is the same so we could identify it with dot.
+
+2. Type "docker images" or "docker ls" to see the created images with docker, we will see something like this:
+
+REPOSITORY     TAG       IMAGE ID       CREATED         SIZE
+hello-docker   latest    4e66d9c707d1   9 seconds ago   237MB
+
+
+3. Running the image with next command:
+
+docker run hello-docker
+
+
+This command will run our container and our application inside the container, well done!!!
+
+Please check the 07_Docker_in_Action folder to put in practice.
+
+
+Windows 10+ ships with a Linux kernel. So when using Docker, you can choose between Windows or Linux containers. Windows containers (processes) need to talk to the Windows kernel under the hood. Linux containers need the Linux kernel.
+
+These are essentially two different isolated worlds. You can choose between these two worlds by right-clicking on the Docker icon in the notification tray (in the bottom status bar).
+
+Remember: the images and containers in the Windows world are invisible to the Linux world. You'd need Windows containers only if you need an image that starts from Windows.
+
+
+
+

@@ -1,0 +1,80 @@
+Tagging Images
+
+
+As you already saw, we can tag images to better identification and management. Well, we have 2 different ways to tag an image, we will describe it next:
+
+
+	1. On the images build
+		
+		docker image build -t react-app:latest .
+
+
+		:latest ---> this is an option to add the tag, on this case the tag is "latest"
+
+
+	2. After we built the image
+
+		docker image tag react-app:latest
+	
+		tag ---> we can use the "tag" command to update the tag the image
+
+
+But... Wait, Why we tag the docker images?
+
+Well, on a real project we tag the images to identify the versions or environments we should send the image. Latest image will never go to production environment, we need to test and validate into previous environments before send an image to production. Latest images is ok on development environment, but for other environments we should tag images and identify where we should send those.
+
+For example we can tag the images with sequential number, version number, or even by dates.
+
+sequential number:
+
+	react-app:1
+	react-app:2
+	react-app:3
+	....
+
+Version
+
+	react-app:1.0.0
+	react-app:1.1.0
+	react-app:2.0.0
+	....
+
+Dates
+	react-app:31-11-2025
+	react-app:02-12-2025
+	react-app:10-01-2026
+
+Previous notations are just some examples, every project could have their own notations.
+
+
+Exercise:
+	
+
+	1. Remove the react-app image and make sure you don't have it on "docker images" list anymore
+	2. Create a new build of that react-app image
+	3. Add a new tag image as "1" pointing to that previous created one
+	4. Create a new build of that react-app image but with tag 2
+	5. List all the images, you should have 3, latest, 1 and 2. 
+	6. If you did all right, you can see 2 images with the same id (latest and 1)
+	7. The tagged image 2 have a different id than the latest one, so please point the latest to the tagged 2 image.
+	
+
+
+Solution:
+
+
+	1. docker image rm react-app
+	2. docker image build -t react-app .
+	3. docker image tag react-app:latest react-app:1
+	4. docker image build -t react-app:2 .
+	5. docker images
+	6. If you did all right, you can see 2 images with the same id (latest and 1)
+	7. docker image tag react-app:2 react-app:latest
+
+
+
+
+
+
+
+

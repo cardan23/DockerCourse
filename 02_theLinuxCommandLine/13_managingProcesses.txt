@@ -1,0 +1,50 @@
+Managing Processes
+
+
+A process is an instance of a running program.
+
+To see all the running programs or all the running processes we can use the next command:
+
+	ps  --> means process
+
+	we will see something like this
+
+	PID TTY          TIME CMD
+	1 pts/0    00:00:00 bash
+  	526 pts/0    00:00:00 ps
+
+	bash --> is a process (means Bourne-Again SHell) its the program we are using as terminal and Linux command execution
+	
+
+We are going to create a process and kill it, this just to know how to do it:
+
+Creating a process and executing on background:
+
+	sleep 3 --> the prompt will wait 3 seconds and return again
+
+	To put it on background we will add the ampersand at the end
+	
+	sleep 3 & --> the prompt will wait 3 seconds and return again, but this process will be done on background 
+
+	To have time for this exercise we will set 100 seconds like next:
+
+	1. sleep 100 & 
+
+	2. we will execute "ps" command to check the processes, we will see something similar to next:
+
+		PID TTY          TIME CMD
+		1   pts/0    00:00:00 bash
+  		534 pts/0    00:00:00 sleep
+  		535 pts/0    00:00:00 ps
+
+	3. Kill the process applying next command, kill command to kill the process and 535 is the ID of the process:
+
+		kill 535
+
+
+
+
+Well done!! You already learned what is a process and how to kill them on Linux!!!
+
+
+	

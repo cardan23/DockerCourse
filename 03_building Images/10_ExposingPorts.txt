@@ -1,0 +1,26 @@
+Exposing ports
+
+We need to expose some ports into our container to be able to access our application from outside. Docker have a command to expose ports and we will learn how to do it on this lesson.
+
+It is important to know the exposed port is on the container and not on the physical host, to be able to access a port from our host to our container we need to map it. 
+
+On this lesson we will see how to expose the port on the container and in next lessons we will see hoe to map it and be able to go to it from outside.
+
+Docker have a "EXPOSE" command to indicate what port we are going to expose, like bellow:
+
+
+Open the "dockerfile" and add the next line at the end of the file 
+
+EXPOSE 3000
+
+we are exposing the port 3000.
+
+Save the file and build the image again
+
+	docker build -t react-app .
+
+Run the docker container
+
+	docker run -it react-app sh
+
+Now you have expose a port in a docker container, Well done!!!

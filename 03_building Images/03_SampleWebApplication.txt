@@ -1,0 +1,26 @@
+Sample Web Application
+
+This is an exercise just to identify what we need to do for running an application on our host without Docker.
+
+
+1. Install nodejs on your computer 
+2. Please check and open the "section4-react-app" directory on visual code.
+3. Open a terminal window and go to this path directory "section4-react-app"
+4. Execute next command:
+	
+	npm install
+
+5. Execute the start command:
+	
+	npm start
+
+6. Open your application on "localhost:3000"
+7. Done, you will see the react app running.
+
+
+Those are the steps, as you can see consume a lot of memory with packages and a lot of time to installation and run.
+
+On the next lesson we will "Dockerize" this application to make it easier.
+
+
+Well, done you already run it an application on your local environment!!!

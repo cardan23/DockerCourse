@@ -1,0 +1,57 @@
+Chaining Commands
+
+In Linux we have different ways to chain or combine multiple commands, lets take a look:
+
+
+Semicolon - A way to chain commands is using semicolon ";" between every command to apply, for example:
+
+	mkdir test; cd test; echo done
+
+	This will execute the next commands in the typed order:
+
+	1. mkdir test
+	2. cd test
+	3. echo done
+
+	One thing to consider with this operator ";" is... if some command fails the next one will be executed, so for this reason we should pay atenttion to what we need and not affect our purpose.
+
+
+Ampersand - Another way to chain command is using doble ampersand "&&" between every command to apply, for example:
+
+	mkdir test && cd test && echo done
+
+	This will execute the next commands in the typed order:
+
+	1. mkdir test
+	2. cd test
+	3. echo done
+	
+	The difference with semicolon ";" and "&&" is the next one... With the Ampersands if a command fails, the next one will not be executed.
+
+
+"Or" operator - || With this operator we can execute a command and if this fails we can execute the next one:
+
+	mkdir test || echo "directory already exist"
+
+
+Pipe operator (|) - This a way to chain commands in Linux means the output of first command will be sent to next one, example
+
+	ls /bin | less --> we can use up/down arrows to visualize the result of the first command
+	ls /bin | head --> will show the first 10 head lines of the result of the first command
+	ls /bin | head -n 5 --> will show the first 5 head lines of the result of the first command
+
+
+Using back slash (\) - This a way to chain commands in Linux in multiple lines, not only in one line, please check the next example:
+
+	mkdir test;\
+	cd test;
+	\echo done
+
+	This way will let us write multiple lines and execute multiple commands
+
+	
+
+
+
+
+

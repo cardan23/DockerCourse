@@ -1,0 +1,28 @@
+Stopping and starting containers
+
+
+The command to stopping a container is the next one:
+
+	docker stop <containerId or containerName>
+
+	docker stop blue-sky
+
+
+The command to start a container is the next one:
+
+	docker start <containerId or containerName>
+	
+	docker start blue-sky
+
+
+The difference between "run" and "start":
+
+	We use "docker run" when we want to create a new container from an image.
+
+	We use "docke start" when we have the container created and stopped.
+
+
+
+Well done, you have stopped and started a container!!!
+
+

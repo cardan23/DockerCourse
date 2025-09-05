@@ -1,0 +1,68 @@
+Setting the user
+
+We are going to create a user into our container to limit the access and avoid to work with root user by security.
+
+
+Please follow next steps to add a new user and a new group to our container:
+
+
+1. open the terminal and got the react app path
+2. open the container "alpine" with interactive mode
+
+	docker run -it alpine
+
+3. add a group with name app
+
+	addgroup app
+
+4. add a user called "app" and assign it to our new created group "app"
+
+	adduser -G -S app app
+
+5. Check if our user was properly created on our group with next command
+
+	groups app
+
+	Should show something like next:
+	app
+
+	This is telling to us, app user is in the app group
+
+
+6. To make a short command we can do it in a single line using the "&&" operator, like next:
+
+	addgroup app && adduser -S -G app app
+
+	-S  --> this option is to create a system user
+	-G  --> this option is to add the user to a group
+	app --> first "app" option is the group name
+	app --> second "app" option is the new user name
+
+7. Close the container and go to "dockerfile" and write at the end of the file the previous command followed the USER command:
+
+	RUN addgroup app && adduser -G -S app app
+	USER app
+
+	USER --> this command is to login once we start our container and use this user
+
+8. Save the file, build the image and run the container again:
+
+	1. docker build -t react-app .
+	2. docker run -it react-app sh
+	3. Execute the next command to validate if the user and group was created properly and logged in
+
+		whoami
+
+		Should show something like next:
+		app
+
+		groups app
+
+		Should show something like next:
+		app
+
+
+At this point you already created a user and group on docker container, well done!!!
+
+
+

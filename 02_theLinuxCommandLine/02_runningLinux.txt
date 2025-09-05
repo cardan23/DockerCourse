@@ -1,0 +1,49 @@
+Running Linux with Docker
+
+	we have some commands to know on docker and be able to run our images lets see some of these commands:
+
+	- docker pull <nameOfImage>
+
+		example: docker pull ubuntu
+
+		This command will download from docker hub repository (hub.docker.com) the "ubuntu" image to our environment.
+
+	- docker run <nameOfImage>
+
+		example: docker run ubuntu
+
+		This command will run the docker image.
+
+		Note: In case the image doesn't exist on local environment, docker run command will pull it automatically
+		from docker repository and will download it.
+
+	- docker ps
+		
+		This command will show the list of docker processes (containers) running into our environment.
+
+	- docker ps -a
+		
+		This command will show the list of all docker processes (containers) running and not running into our environment.
+	
+	-docker run -it <nameOfImage>
+
+		example: docker run -it ubuntu
+
+		This command will let us run the image into interactive mode (it). With this will show the terminal window of our ubuntu
+		image running.
+
+		Once inside of the Ubuntu terminal, we can play with some Linux commands like next ones:
+
+		cd <path>               --> go to some path
+		mkdir <nameOfTheFolder> --> create a folder
+		pwd                     --> print on the screen the actual path
+		ls                      --> show the list of files and folders on the actual path
+		whoami                  --> show the name of the user we are logged in
+		
+
+Important to Know: Linux is a case sensitive operating system, it is not the same type "Docker" than "docker", so please be careful and check the correct way to apply commands.
+
+
+You already know some Linux commands, Well done!!!
+
+

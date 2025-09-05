@@ -1,0 +1,62 @@
+Managing Packages
+
+On Linux for downloading and installing software we have the next tool (It's a package manager like, npm, yarn, etc. but for Linux)
+
+	apt - which means Advanced Package Tool
+
+In this activity we will get a package called "nano" which is a text editor on Linux versions.
+
+if you type "nano" on Ubuntu terminal you will get an error, so, for this reason we will install it.
+
+We will show the commands and describing at the same time:
+
+	1. Installing packages
+
+	- apt install nano
+		this command will install our package into our environment, if this command fails please check the next command (apt update)
+
+	- apt update
+		this command will update the complete database of packages available into our environment, in case we need
+		a package and is not available on our database package we will need updated first. If you execute the installation of your package (apt install <nameOfPackage>), now will work fine.
+	
+	After execute those commands we will have installed our package nano.
+
+	2. Test nano
+
+	   On ubuntu terminal type "nano" and then press enter. The command line will show nano text editor, add some text and the delete it. Just to test the package is working fine.
+	
+
+	3. Removing Packages
+
+	- apt remove nano
+		this command will remove the package from our ubuntu, if you remove the package and try to use it should show an error message.
+
+	
+
+	4. Exercise
+	
+	Now is your turn, install "python" package, check if is installed correctly and remove the package. Try to use it again to verify is not present anymore and see the error message.
+
+	
+	Solution: 
+
+	apt update          --> updating the database of packages on our linux
+	apt install python3 --> installing the package
+	apt remove python3  --> removing the package
+
+	If not remove it totally, please follow next steps
+
+	1. apt clean
+	2. apt autoremove --purge
+	3. apt remove python3
+	4. apt autoremove
+
+
+You already know how manage packages on Linux, great!!! Well done!!!
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+Searching for text
+
+	"grep" command will help us to find or search for some text into a file, "grep" means "global regular expression print".
+
+	Try the next command to find the word "hello" on file.txt:
+
+		grep -i hello file.txt 
+
+		-i, this means case insensitive
+
+		this command will mark in red the word if its find it.
+
+	We can use regular expressions too.
+
+		grep -i hello file*
+
+		we are searching the word "hello" on every file which their name starts with "file."
+
+	We can search recursively into a folder.
+
+		grep -i -r hello . --> -r means recursively, we can use it on a directory
+ 		grep -ir hello . --> same as command above
+		
+		here we are searching for "hello" word, recursebly into current directory
+
+
+	

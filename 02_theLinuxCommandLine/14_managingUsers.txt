@@ -1,0 +1,81 @@
+Managing Users
+
+We are going to learn some commands in Linux to manage users.
+
+
+	useradd ---> Adding a user
+	usermod ---> modify a user
+	userdel ---> delete a user
+
+	As we already know if we want to know more about a command, the "help" command on Linux could help:
+
+	The next command will show the parameters or options we can use with the command	
+
+	useradd --help
+
+
+We will add a user with a home directory with next command:
+
+	1. useradd -m dany
+
+	-m ---> means create the home directory to new user
+
+	2. now execute next command to see the created user
+		
+		cat /etc/passwd
+		
+	You will see something similar to this at the end of the file:
+
+		dany:x:1001:1001::/home/dany:/bin/sh
+
+	As we can see this user contains next text at the end of the line
+
+		dany:/bin/sh
+
+	This means will use the shell original program when this user login.
+
+	3. We will modify the shell original to bash with next command
+
+		usermod -s /bin/bash dany
+
+		-s ---> option to modify the shell
+
+	4. We execute cat to passwd file to see if we already modify it
+
+		cat /etc/passwd
+
+		We will see something like this:
+
+		dany:x:1001:1001::/home/dany:/bin/bash
+
+	5. In the /etc directory we have the a passwords files, only available for root user
+
+		cat /etc/shadow
+
+		On this files we can see users and passwords in encrypted format.
+
+	6. Open another teminal on visual code and type the next command to run the container with the new user:
+
+		docker exec -it -u dany 6ba3f9873246 bash
+
+		6ba3f9873246 ---> this is the id of the container process, you should change it for the id you have.
+
+
+	7. You should see something similar to this
+
+		dany@6ba3f9873246:~$
+
+		if you try to see the password file, you should get an error due to "dany" is not a root user, and doesn't have permission.
+
+		Something like this and will be fine:
+
+		cat /etc/shadow
+		cat: /etc/shadow: Permission denied
+		
+		
+
+Well done!!, now you learned about user managing on Linux, keep going we are on the correct way!!!
+
+
+
+

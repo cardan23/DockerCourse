@@ -1,0 +1,116 @@
+File permissions
+
+Now we are going to learn how to add and remove permissions to a file on Linux, this could be something confuse for many people but don't worry this is super easy and we will explain it with examples, so lets jump in.
+
+
+We have a command on Linux to modify file permission
+	
+	chmod -->  means "change mode" referring to permission file changes
+
+
+We are going to create a shell file ".sh" extension, this is a file where we can put Linux commands and execute it, just like if we were writing on the terminal window.
+
+1. On root user go to "/home" path --> cd /home
+1. Still on root user please create "deploy.sh" file
+2. echo echo hello!! >> deploy.sh
+3. execute next command to see the permissions of the file
+
+	ls -l
+
+	you will see something similar to next:
+
+	drwxr-x--- 2 dany   dany   4096 Aug 26 01:48 dany
+	-rw-r--r-- 1 root   root      0 Aug 26 03:42 deploy.sh
+
+
+	We are going to explain it:
+
+	d --> first "d" char on the first line at the beginning indicates "dany" is a directory, if we see a "-" indicates is a file.
+	- --> Hyphen at the beginning indicates is a file
+
+	on next chars we can see something like this on the deploy.sh line "rw-r--r--"
+
+	Those means 3 different things:
+
+		The first 3 chars
+		
+		rw-      ----> indicates read, write and execute permissions for the owner user of the file (As you can see we have execute missing permissios), when we create the file this is assigned to a user by default. This user on our case is "root" as you can see on the second column and the group of the file is the root group as we can see on the third column.
+
+
+		r--      ----> indicates read, write and execute permissions for the group owner of the file (we have only read permissions for the root group).
+
+
+		r--      ---> indicates read, write and execute permissions for others
+
+
+
+4. We will add execute permissions for root user into deploy.sh file
+
+	chmod u+x deploy.sh
+
+5. Execute long list again
+
+	ls -l
+
+	we will see something like this, now you can notice we already have permissions of execution on the first part of permissions, wich means the user owner in this case root can execute it.	
+
+	-rwxr--r-- 1 root   root      0 Aug 26 03:42 deploy.sh
+
+
+6. Execute the deploy.sh file and you will see the message now
+
+	deploy.sh
+
+
+7. We will add execute permissions for others into deploy.sh file 
+
+	chmod u+x deploy.sh
+
+8. Execute long list again
+
+	ls -l
+
+	we will see something like this, now you can notice we already have permissions of execution on the last part of permissions, wich means  all other users on the system, in this case "dany" user can execute it.	
+
+
+9. Go to "dany" terminal window, execute the same file and you will see the message
+
+	go to /home path ---> cd /home
+
+	execute the file ---> deploy.sh
+
+
+Note Optional: Another way to add permissions with chmod
+
+chmod 777 ---> explanation:
+
+7 -- user owner
+7 -- group owner
+7 -- all other users on the system 
+
+The write, read, and execute permissions have the following number value:
+
+r (read) = 4
+w (write) = 2
+x (execute) = 1
+no permissions = 0
+The permissions digit of a specific user class is the sum of the values of the permissions for that class.
+
+Each digit of the permissions number may be a sum of 4, 2, 1, and 0:
+
+0 (0+0+0) – No permission.
+1 (0+0+1) – Only execute permission.
+2 (0+2+0) – Only write permission.
+3 (0+2+1) – Write and execute permissions.
+4 (4+0+0) – Only read permission.
+5 (4+0+1) – Read and execute permission.
+6 (4+2+0) – Read and write permissions.
+7 (4+2+1) – Read, write, and execute permission.
+
+
+IMPORTANT: Never give "chmod 777" to a folder or file if you don't know what are you doing.
+
+
+Well done!! you have added permissions to a file for a user and  all other users on the system, congratulations!!!
+
+

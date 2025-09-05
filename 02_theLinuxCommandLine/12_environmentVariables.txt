@@ -1,0 +1,54 @@
+Environment Variables
+
+What are Environment Variables in Linux?
+
+
+Linux environment variables are dynamic variables used by a shell and its child processes. The shell serves as the primary command-line interface for system administrators and developers to perform advanced tasks on Linux systems. Environment variables define a variety of aspects related to how a Linux system works. For example, a user’s default shell is defined in the SHELL variable. Similarly, many administrators use the JAVA_HOME= environment variable to point programs to specific versions of Java on a system.
+
+
+A few key points to keep in mind when working with Linux environment variables are:
+
+ - Environment variables follow <NAME>=<VALUE> formatting.
+ - You can specify multiple values for a single variable by separating them with colons like this: <NAME>=<VALUE1>:<VALUE2>:<VALUE3>
+ - Environment variables are case-sensitive.
+ - By convention, but not rule, environment variable names are always capitalized.
+ - Shell variables are not the same as environment variables. Shell variables only apply to the current shell, not any child processes.
+
+
+Use printenv to List Linux Environment Variables
+
+	The "printenv" command displays the current environment variables.
+
+Use echo to Display a Linux Environment Variable
+
+	One of the quickest ways to display a single Linux environment variable is to use the echo command. 
+	
+	The basic syntax is echo $<variable_name>
+
+
+We can create our own Environment Variables, just like this:
+
+	export NAME_VARIABLE=value
+
+The problem with this is the environment variable is available only into the current terminal session and will not be available once we exit from the container and start it again, to make that environment variable persistent will do the next thing:
+
+
+	1. cd ~ ---> go home path
+	2. ls -a --> show all files and directories
+	3. We will see the next file ".bashrc", on this file we will add to the end our environment variable to make it persistent
+	4. execute next command 
+
+		echo MY_ENV_VARIABLE=my_value >> .bashrc  ---> This will append the variable to end of the file
+
+	5. We reload the file due to this file ".bashrc" only is loaded at the begginig of the session.
+
+		source ~/.bashrc
+
+	6. Environment variable will be take as a new one.
+
+
+
+
+Congrats!! You already know what are environment variables and created one, well done!!!
+
+

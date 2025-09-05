@@ -1,0 +1,25 @@
+Redirection
+	When we use "cat" to see the content of a file, Linux is getting the content of the file and sending it to the screen, we call to 	this process redirection.
+
+	We can redirect the "cat" content from a file into another with the next way:
+		
+		cat file1.txt > file2.txt
+
+		> ---- this symbol means to send the information cat get to another file.
+
+	We can concatenate the files into another one like this:
+		
+		cat file1.txt file2.txt > combinedfile.txt
+	
+		This will send all on file1 and file2 to combinedfile.txt
+
+	You can redirect any command result into a text file:
+
+	As a final exercise try this:
+		
+		ls -l /etc > longlist.txt
+
+		you will see the result of list of all files into /etc folder on the longlist.txt file.
+
+
+Great!!! You now know how to use the redirection symbol (>) on Linux, well done!!

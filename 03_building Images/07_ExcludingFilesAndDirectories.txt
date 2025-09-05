@@ -1,0 +1,14 @@
+Excluding files and directories
+
+
+Similar to git with ".gitignore" file on Docker we have a ".dockerignore" file, on this file we are going to add all directories and files we want to exclude from our container. So please follow the next steps:
+
+
+1. On visual studio on our application directory create an ".dockerignore" file
+2. Add the "node_modules/" line on the file and run again the cointainer
+3. docker build -t react-app .
+4. docker run -it react-app sh
+5. Check the node_module directory is not present anymore
+
+
+You have excluded some files and directories into docker, well done!!

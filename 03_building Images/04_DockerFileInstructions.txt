@@ -1,0 +1,44 @@
+Docker File Instructions
+
+
+The first step to "Dockerize" an application is adding the "dockerFile" (with no extension file) to the project and add some commands to apply changes to be able to run our application with Docker.
+
+On the file we can find the next "Docker" commands:
+
+FROM
+	This is to specify the base image we are going to use and work over it
+
+WORKDIR
+	Set the working directory we are using on our application
+
+COPY
+	Copy some files/directories to container
+
+ADD
+	Add some files/directories to container
+
+RUN
+	This is to executing operating system commands on the container, all learned Linux commands can be executed in docker with it
+
+ENV
+	Setting environment variables
+
+EXPOSE
+	Expose some port number on container
+
+USER
+	For specify the user should run the application, we are going to run the application with a user with limited permissions
+
+CMD
+	For specify what command will be executed when we start the container
+
+ENTRYPOINT
+	For specify what command will be executed when we start the container
+
+
+
+We will see all those commands in a deeper way in next lessons.
+
+
+You already know a base of "Docker" commands, well done!!!
+

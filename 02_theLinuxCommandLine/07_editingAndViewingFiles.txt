@@ -1,0 +1,34 @@
+Editing and viewing files
+
+	Install nano and create a file, add some content:
+
+		- apt install nano
+		- nano file.txt
+		- write some text
+		- save it, ctrl + X, and type 'Y'
+
+	To see the content of this file using "cat" command (concatenate command):
+		
+	 	- cat file.txt --> this is very useful for visualise short files
+
+	To see the content of this file using "more" command:
+		
+	 	- more file.txt --> this is very useful for visualise long files
+	
+	To see the content of this file using "less" command:
+		Install "less"
+		
+		apt install less
+		less file.txt --> this will let us navigate up and down into the file.
+
+	to see first N lines of the beginning of the file with "head" command:
+		
+		head -n <number Here> <file name>
+
+
+	to see last N lines of the end of the file with "tail" command:
+		
+		tail -n <number Here> <file name>
+
+		
+	

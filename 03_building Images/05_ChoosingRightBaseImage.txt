@@ -1,0 +1,38 @@
+Choosing the right base image
+
+
+We are going to add the dockerfile to our application and follow next instructions:
+
+1.  Add the next command inside of it
+
+	FROM node:alpine3.22
+
+	note: "alpine" is a very light version of Linux, that is the reason we are choosing this one.
+
+
+2. Open the terminal window and Create an image 
+	
+	docker build -t react-app .
+
+	-t --> tagging our image as "react-app"
+	.  --> tell docker where it can find our docker file, in this case dot means into the same directory
+
+
+3. Now to run your container in a interactive way please type next command
+	
+	docker run -it react-app sh
+
+
+
+
+Note: You can find samples of images depending of the project to have, you can take a look on this link: 
+	
+	https://docs.docker.com/reference/samples/
+
+
+
+
+You have downloaded your image and run your container, Well done!!!
+
+
+

@@ -1,0 +1,25 @@
+Linux File system
+	On this section we will let you know what is the Linux file system structure and a brief description of each part.
+
+	As you maybe know windows has the next structure:
+	
+		C:\
+		  --Program files
+		  --Windows
+
+	So on Linux we have something similar, but the big difference is on Linux everything is a file, described below. 
+		
+		/ -- root
+		  bin -- binary files
+		  boot -- files about booting system
+		  dev -- devices (everything is a file even devices)
+		  etc -- configuration files (etc means "editable text configurations")
+		  home -- home directory for users, each user on linux will have their own home directory
+		  root -- home directory only for root user
+		  lib -- library files software dependencies
+		  var -- variable, on this path we have file which are changing or updating frecuently like lock files, application files, etc.
+		  proc -- process, directory which contains processes on linux system (everything is a file even processes).
+
+
+
+Great!!! You already Know the base of the Linux file system, congrats and well done!!!!

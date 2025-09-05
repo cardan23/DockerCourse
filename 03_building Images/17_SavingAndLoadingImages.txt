@@ -1,0 +1,50 @@
+Saving and loading images
+
+In this lesson we are going to learn about how to save docker images on a file.
+
+
+Docker save
+
+	On docker we have a command which is "docker save" this command let us save our image into a file and let us take that file and share it with anyone we need.
+
+	docker image save -o <nameOfTheFile> <nameOfTheImage>
+
+	-o ---> (output) we are asking docker write in a file
+
+	<nameOfTheFile>  ---> name of the file we are going to create with our image
+
+	<nameOfTheImage> ---> name of the image we are going to save
+
+	Based on above, please apply the next command:
+
+
+	docker image save -o react-app.tar carlosavilc/react-app:3
+
+
+Once the command end the process please check if the file was created, you should have a .tar file with the name you specified.
+
+
+Now, we are going to load that file and get the image with docker.
+
+1. Remove all docker images about react-app to avoid confusion.
+2. Apply next command
+
+	docker image load -i react-app.tar
+	
+	-i ---> Read from tar archive file
+
+3. List your docker images 
+
+	docker images
+
+4. Check we have our docker image carlosavilc/react-app:3 into the list
+
+
+
+You have saved and loaded a docker image, well done!!!
+
+
+
+	
+	
+	
